@@ -1,7 +1,13 @@
-import express, { request, response } from "express";
+import express, { json, request, response } from "express";
+
+import "./database";
+import { routes } from "./routes";
 
 const app = express();
 
+app.use(express.json())
+
+app.use(routes);
 /**
  * GET = BUSCAS 
  * POST = CRIAÇÃO
@@ -9,14 +15,4 @@ const app = express();
  * DELETE = DELETAR
  * PATCH = ALTERAR UMA INFORMAÇAO ESPECIFICA (EX SENHA DE USUARIO)
  */
-app.get("/",(request,response)=>{
-    return response.json({
-        message: "Olá NLW#05"
-    })
-});
-
-app.post("/users", (request, response)=>{
-    return response.json({message:"usuario salvo com sucesso!"});
-})
-
 app.listen(3333, () => console.log("server is runnig on port 3333"));
