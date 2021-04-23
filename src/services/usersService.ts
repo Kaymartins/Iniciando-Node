@@ -12,6 +12,10 @@ class UsersService {
         this.UsersRepository = getCustomRepository(usersRepository);
     }
 
+    async findByEmail(email: string) {
+    return await this.UsersRepository.findOne({ email })
+    }
+
     async create(email: string) { 
         //verificar se o usuario existe 
 

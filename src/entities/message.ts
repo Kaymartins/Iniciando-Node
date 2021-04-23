@@ -31,11 +31,6 @@ class Message {
         }
 
     }
-
-
-
-
-
 }
 
 export { Message }
